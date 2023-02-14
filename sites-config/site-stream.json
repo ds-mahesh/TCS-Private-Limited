@@ -1,0 +1,23 @@
+{
+  "$id": "site-entity",
+  "filter": {
+    "entityIds": ["global-data"]
+  },
+  "source": "knowledgeGraph",
+  "fields": [
+      "name" ,
+      "c_headerLinks",
+      "c_tcslogo",
+      "c_icons",
+      "c_industries",
+      "c_tcsservices",
+      "c_productsPlatforms",
+      "c_insights",
+      "c_tATALogo"
+     
+  ],
+  "localization": {
+    "locales": ["en"],
+    "primary": false
+  }
+}
