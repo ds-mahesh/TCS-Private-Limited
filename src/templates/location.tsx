@@ -313,7 +313,7 @@ const Location: Template<ExternalApiRenderData> = ({
 	// 	</a>
 	//   ));
   const image=c_snapshots?.map((i:any)=>(  
-    <div> 
+    <div style={{color:"white"}}> 
    <img className="rounded-full" style={{width:"200px"}} src={i.photo.url} alt="..."/>  
     <span>{i.label}</span>  
     </div>  
@@ -326,7 +326,7 @@ const Childimages=c_childimages?.map((i:any)=>(
 ));
 
 const  DetailsCards = c_detailsCards?.map((link: any) => (
-  <div>
+  <div style={{paddingBottom:"250px"}}>
      <div className="" style={{}}> 
           <img src={link?.image?.url}  className="" style={{height:"300px"}}/>         
            <p style={{fontSize:"20px",marginTop:"-60px",color:"white"}}><b>{link?.description}</b></p>
@@ -345,7 +345,7 @@ const  DetailsCards = c_detailsCards?.map((link: any) => (
     <div>
        <div className="" style={{}}> 
             <img src={link?.image?.url}  className="w-full" style={{height:"400px"}}/>         
-             <p style={{fontSize:"40px",color:"white",marginTop:"-370px",marginLeft:"20px"}}><b>{link?.description}</b></p>
+             <p style={{fontSize:"40px",color:"gray",marginTop:"-370px",marginLeft:"20px"}}><b>{link?.description}</b></p>
        </div> 
        <div style={{marginLeft:"10px",marginTop:"280px"}}> 
            <a className="pt-6" href={link?.cTA?.link}  >
@@ -571,7 +571,7 @@ breadcrumbScheme.push({
                 </div> 
             </div>
       </div>
-      <div style={{backgroundColor:"lightgray"}}>
+      <div style={{backgroundColor:"gray"}}>
       <div className="location-information" >
         <Contact address={address} 
            phone={mainPhone} latitude={yextDisplayCoordinate ? yextDisplayCoordinate.latitude : displayCoordinate?.latitude}
