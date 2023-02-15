@@ -345,7 +345,7 @@ const  DetailsCards = c_detailsCards?.map((link: any) => (
     <div>
        <div className="" style={{}}> 
             <img src={link?.image?.url}  className="w-full" style={{height:"400px"}}/>         
-             <p style={{fontSize:"40px",color:"gray",marginTop:"-370px",marginLeft:"20px"}}><b>{link?.description}</b></p>
+             <p style={{fontSize:"40px",color:"white",marginTop:"-370px",marginLeft:"20px"}}><b>{link?.description}</b></p>
        </div> 
        <div style={{marginLeft:"10px",marginTop:"280px"}}> 
            <a className="pt-6" href={link?.cTA?.link}  >
