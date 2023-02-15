@@ -251,7 +251,7 @@ const loading = useSearchState(s=>s.searchStatus.isLoading);
              displaymsg={displaymsg}
              setDisplaymsg={setDisplaymsg}
               customCssClasses={{
-                filterSearchContainer: "m-2 w-full",
+                filterSearchContaine: "m-2 w-full",
                 inputElement: "FilterSearchInput pr-[90px]",
                 optionsContainer: "options"
               }}
@@ -349,9 +349,10 @@ const loading = useSearchState(s=>s.searchStatus.isLoading);
             <div>
              
                 <VerticalResults
-                  displayAllOnNoResults={false}
-                  CardComponent={LocationCard}
-                  locationResults={locationinbuit}
+
+              displayAllOnNoResults={false}                
+              CardComponent={LocationCard}
+              locationResults={locationResults}
                   customCssClasses={{
                     container:
                       "result-list flex flex-col scroll-smooth  overflow-auto",

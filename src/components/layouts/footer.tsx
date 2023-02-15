@@ -73,15 +73,15 @@ const Footer = (props: any) => {
 
 	return (
 		<>
-			<footer className="site-footer inline-block w-full">
+			<footer className="site-footer inline-block w-full pt-6" style={{paddingTop:"250px"}}>
 							 		  					  					  
 				    
-				<div style={{backgroundColor:"black"}} >
+				<div style={{backgroundColor:"gray"}} >
 					
-				<div  className="container px-6 pt-6" style={{height:"330px"}}>
+				<div  className="container px-6 pt-6" style={{height:"300px"}}>
 					<div className="store-locator">					   
-		              <h2 style={{ color: "green" }}>Industries</h2> 
-                           <div className="text-2xl pt-6 ">
+		              <h2 style={{ color: "black" }}>Industries</h2> 
+                           <div className="text-xl pt-6 ">
 		                       {props._site?.c_industries?.headingName}
                                <ul style={{ color: "white" }} className="menu_footer">
                                <li><a >{Industries}</a></li>
@@ -90,8 +90,8 @@ const Footer = (props: any) => {
 			          					  					  					 
 				    </div>
 					<div className="store-locator">					   
-		                 <h2 style={{ color: "green" }}>TCS Services</h2>
-                           <div className=" text-2xl pt-6">
+		                 <h2 style={{ color: "black" }}>TCS Services</h2>
+                           <div className=" text-xl pt-6">
 		                       {props._site?.c_tcsservices?.headingName}
                                <ul style={{ color: "white" }} className="menu_footer  ">
                                <li><a >{Tcsservices}</a></li>
@@ -100,8 +100,8 @@ const Footer = (props: any) => {
 			          					  					  					 
 				    </div>
 					<div className="store-locator">					   
-		               <h2 style={{ color: "green" }}>ProductsPlatforms</h2>
-                           <div className="text-2xl  pt-6">
+		               <h2 style={{ color: "black" }}>ProductsPlatforms</h2>
+                           <div className="text-xl  pt-6">
 		                       {props._site?.c_productsPlatforms?.headingName}
                                <ul style={{ color: "white" }} className="menu_footer ">
                                <li><a >{ProductsPlatforms}</a><br /></li>
@@ -110,8 +110,8 @@ const Footer = (props: any) => {
 			         					  					  					 
 				    </div>
 					<div className="store-locator">					   
-		                <h2 style={{ color: "green" }}>Insights</h2>
-                           <div className="text-2xl  pt-6">
+		                <h2 style={{ color: "black" }}>Insights</h2>
+                           <div className="text-xl  pt-6">
 		                       {props._site?.c_insights?.headingName}
                                <ul style={{ color: "white" }} className="menu_footer ">
                                <li><a >{Insights}</a></li>

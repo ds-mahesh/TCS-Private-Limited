@@ -65,8 +65,9 @@ export default function Nearby(props: any) {
           if (index > 0) {
             return (
               <>
+              <div style={{backgroundColor:"lightblue"}}>
                 {/* <SplideSlide key={index}> */}
-                  <div className="nearby-card">
+                  <div className="nearby-card" style={{width:"350px",height:"300px"}}>
                     <div className="location-name-miles icon-row">
                       <h2><Link className="inline-block notHighlight" href={`/${location.data.id}`}
                         data-ya-track={`${location.data.name}`}
@@ -103,6 +104,7 @@ export default function Nearby(props: any) {
                       
                     </div>
                   </div>
+                  </div>
                 {/* </SplideSlide> */}
               </>
 
@@ -113,6 +115,7 @@ export default function Nearby(props: any) {
         )
         }
       {/* </Splide> */}
+      
     </>
   )
 }

@@ -72,18 +72,12 @@ export const config: TemplateConfig = {
       "displayCoordinate",
       "cityCoordinate",
       "description",
-      // "c_bannerimages",
+      "c_childimages",
+      "c_childdescription",
+      // "c_bannerimage",
+      "c_bannerImages",
       "c_snapshots",
-
-      // "logo",
-      // "photoGallery",
-      // "c_bannerVideo",
-      // "c_bannerImage",
-      // "c_explore",
-      // "c_cuponcard",
-      // "c_googleLogo",
-      // "c_bannerCta",
-      // "c_howzetimage",
+      "c_detailsCards",
       "dm_directoryParents.name",
       "dm_directoryParents.slug",
       "dm_directoryParents.meta.entityType",
@@ -306,6 +300,10 @@ const Location: Template<ExternalApiRenderData> = ({
     name,
     c_snapshots,
     dm_directoryParents,
+    c_detailsCards,
+    c_childimages,
+    c_childdescription,
+    c_bannerImages
    
     // c_faq
   } = document;
@@ -320,6 +318,44 @@ const Location: Template<ExternalApiRenderData> = ({
     <span>{i.label}</span>  
     </div>  
 ));
+
+const Childimages=c_childimages?.map((i:any)=>(  
+  <div> 
+ <img className="" style={{height:"450px"}} src={i.url} alt="..."/>    
+  </div>  
+));
+
+const  DetailsCards = c_detailsCards?.map((link: any) => (
+  <div>
+     <div className="" style={{}}> 
+          <img src={link?.image?.url}  className="" style={{height:"300px"}}/>         
+           <p style={{fontSize:"20px",marginTop:"-60px",color:"white"}}><b>{link?.description}</b></p>
+     </div> 
+     <div style={{marginTop:"-270px",marginLeft:"10px"}}> 
+         <a className="pt-6" href={link?.cTA?.link}  >
+            <button className="card-img-top rounded-lg" style={{backgroundColor:"white",height:"30px",width:"160px",fontSize:"15px"}}>
+               <b>{link?.cTA?.label} </b>
+            </button>
+         </a>
+     </div>      
+  </div>   
+  ));
+
+  const  BannerImages = c_bannerImages?.map((link: any) => (
+    <div>
+       <div className="" style={{}}> 
+            <img src={link?.image?.url}  className="w-full" style={{height:"400px"}}/>         
+             <p style={{fontSize:"40px",color:"white",marginTop:"-370px",marginLeft:"20px"}}><b>{link?.description}</b></p>
+       </div> 
+       <div style={{marginLeft:"10px",marginTop:"280px"}}> 
+           <a className="pt-6" href={link?.cTA?.link}  >
+              <button className="card-img-top rounded-full" style={{backgroundColor:"DeepPink",color:"white",height:"50px",width:"140px",fontSize:"20px"}}>
+                 <b>{link?.cTA?.label} </b>
+              </button>
+           </a>
+       </div>      
+    </div>   
+    ));
 
 // const Cuponcard= c_cuponcard?.map((i:any)=>(   
 //   <img src={i.url} className="card-img-top w-4/5 " alt="..."/>  
@@ -521,36 +557,22 @@ breadcrumbScheme.push({
           baseUrl={relativePrefixToRoot}
         ></BreadCrumbs>
       {/* <Banner c_bannerImage={c_bannerImage}  name={name}/> */}
-      <div className="flex space-x-8 pt-6">{image}</div>
-      {/* <div  className="flex" style={{backgroundColor:"DodgerBlue"}}>
-            <div className="flex-col space-y-6" style={{marginTop:"100px",marginLeft:"70px",width:"500px"}}>
-              <h1 style={{fontSize:"35px",color:"white"}}>Domino's Online Ordering</h1>
-              <p style={{fontSize:"20px",color:"darkkhaki"}}>Yummy Pizza Delivered Fast & Fresh</p>
-               <div className=""  style={{backgroundColor:"LimeGreen",height:"60px",width:"400px"}}>
-                <a className="" href={c_bannerCta.link} style={{}} >
-                   <button className="" style={{fontSize:"25px" ,padding:"18px",paddingLeft:"40px",color:"white"}}><b>{c_bannerCta.label} </b></button></a>
-               </div>
-		           <div className="" style={{height:"220px",width:"400px"}}>
-                  <a className="navbar-item" href={c_howzetimage.link} >   
-                  <img src={c_howzetimage.icon?.url} className="flex" /><br/>          
-                 </a>
-               </div>
-          </div> */}
-          {/* <div className="" style={{paddingTop:"90px"}}>{image}</div> */}
-    {/* </div>
-        <h2 className=" pt-6" style={{fontSize:"30px",paddingLeft:"30px", color:"gray"}}><b>Coupons & Offers</b></h2>
-        <div className=" flex space-x-4 pt-6" style={{height:"270px"}}>{Cuponcard}</div>
-        
-      */}
-      <div className="container">
+      <div style={{paddingLeft:"5px"}}>{BannerImages}</div>
+      <div style={{paddingTop:"10px"}}>
+         <h1 className="pt-6" style={{marginLeft:"10px",color:"gray"}}><b>Snapshots</b> </h1>
+         <div className="flex space-x-8" style={{backgroundColor:"black",marginLeft:"5px",marginTop:"10px"}}>{image}
+         </div>
+      </div>
+      <div className="container" style={{backgroundColor:"lightgrey"}}>
             <div className='banner-text banner-dark-bg justify-center text-center'>
-              <h1 className="">{name} </h1>
+               <h1 className="">{name} </h1>
                 <div className="openClosestatus detail-page closeing-div">
                   <OpenClose timezone={timezone} hours={hours} />
                 </div> 
             </div>
-          </div>
-          <div className="location-information">
+      </div>
+      <div style={{backgroundColor:"lightgray"}}>
+      <div className="location-information" >
         <Contact address={address} 
            phone={mainPhone} latitude={yextDisplayCoordinate ? yextDisplayCoordinate.latitude : displayCoordinate?.latitude}
            yextDisplayCoordinate={yextDisplayCoordinate} longitude={yextDisplayCoordinate ? yextDisplayCoordinate.longitude : displayCoordinate?.longitude} hours={hours}  additionalHoursText={additionalHoursText} ></Contact>
@@ -564,7 +586,8 @@ breadcrumbScheme.push({
               </div>
           }
         </div> 
-        <div className="nearby-sec">
+        </div>
+        <div className="nearby-sec" style={{backgroundColor:"lightgray"}}>
           <div className="container">
             <div className="sec-title"><h2 className="">{StaticData.NearStoretext}</h2></div>
             <div className="nearby-sec-inner">
@@ -574,29 +597,24 @@ breadcrumbScheme.push({
             </div>
           </div>          
         </div>
-        {/* <div className="flex" style={{backgroundColor:"DeepSkyBlue"}}>
-           <div className="w-full"> {c_about?.map((i:any)=>{
-             return (
-                   <img src={i.image?.url} className="card-img-top w-full " style={{paddingRight:"10px"}} alt="..."/>
-                    )
-                    
-               })}
-           </div>
-           <div className="w-4/5">
-               <div className=""> {c_about?.map((i:any)=>{
-                   return (
-                      <div className="text-2xl">{i.description}</div>
-                    )                   
-               })}
-               </div>
-               <div className=""> {c_about?.map((link:any)=>{
-                    return (
-                        <a className="navbar-item" href={link.cTA.link} >
-                         <button className="bg-[#1da1f2]">{link.cTA.label}</button></a>
-                    )                   
-               })}
-               </div>
-           </div> */}
+        <div className="flex pt-6" style={{paddingLeft:"10px"}}>
+            <div className="" style={{paddingRight:"20px"}}>{Childimages}</div>
+            <div className="w-1/2">
+              <h3 style={{color:"gray",marginTop:"50px",fontSize:"20px"}}>Who we are</h3>
+              <h1 style={{marginTop:"30px",color:"red"}}><b>We build greater futures<br/>through innovation and <br/> collective knowledge. </b></h1>
+                <p style={{marginTop:"30px",color:"gray",fontSize:"20px"}}>{c_childdescription.description}</p>
+                <a className="" href={c_childdescription.getToKnowUs.link} style={{}} >
+                    <button className="card-img-top rounded-lg" style={{backgroundColor:"",height:"30px",width:"160px",marginTop:"30px"}}>
+                       <b>{c_childdescription.getToKnowUs.label} --> </b>
+                    </button>
+                </a>
+                </div>
+        </div>
+        <div className="pt-6" >
+          <h1 style={{marginLeft:"15px",color:"gray"}}><b>Insights by interest</b> </h1>
+        <div className="flex space-x-8 pt-6" style={{backgroundColor:"",paddingLeft:"15px"}}>{DetailsCards}</div>
+        </div>
+       
               {/* <div className="w-1/2 flex flex-col space-y-4 text-xl ">{c_details.description}
                  <div><a href="#">
                    <div className=""> {<Cta
