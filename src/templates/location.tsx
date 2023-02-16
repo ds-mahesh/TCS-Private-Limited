@@ -78,9 +78,12 @@ export const config: TemplateConfig = {
       "c_bannerImages",
       "c_snapshots",
       "c_detailsCards",
+      "c_explorecareerdescription",
+      "c_explorecareerphoto",
       "dm_directoryParents.name",
       "dm_directoryParents.slug",
       "dm_directoryParents.meta.entityType",
+      // "c_locationpagescards",
       // "c_faq.question",
       // "c_faq.answer",
       
@@ -303,7 +306,9 @@ const Location: Template<ExternalApiRenderData> = ({
     c_childimages,
     c_childdescription,
     c_bannerImages,
-    c_bannerimage
+    c_bannerimage,
+    c_explorecareerdescription,
+    c_explorecareerphoto
    
     // c_faq
   } = document;
@@ -355,7 +360,7 @@ const  DetailsCards = c_detailsCards?.map((link: any) => (
   const  BannerImages = c_bannerImages?.map((link: any) => (
     <div className="">
        <div className="" style={{}}> 
-            <img src={link?.image?.url}  className="w-full" style={{height:"400px"}}/>         
+            <img src={link?.image?.url}  className="" style={{height:"400px"}}/>         
              <p style={{fontSize:"40px",color:"white",marginTop:"-370px",marginLeft:"20px"}}><b>{link?.description}</b></p>
        </div> 
        <div style={{marginLeft:"10px",marginTop:"280px"}}> 
@@ -367,6 +372,12 @@ const  DetailsCards = c_detailsCards?.map((link: any) => (
        </div>      
     </div>   
     ));
+
+    const Explore=c_explorecareerphoto.map((element:any) =>(
+      <div> 
+          <img className="" style={{height:"380px",width:"550px"}} src={element.url} alt="..."/>    
+      </div> 
+      ));
 
 // const Cuponcard= c_cuponcard?.map((i:any)=>(   
 //   <img src={i.url} className="card-img-top w-4/5 " alt="..."/>  
@@ -569,7 +580,7 @@ breadcrumbScheme.push({
         ></BreadCrumbs>
         {/* <div>{Details}</div> */}
       {/* <Banner /> */}
-      <div className="flex space-x-4" style={{paddingLeft:"5px"}}>{BannerImages}</div>
+      <div className="flex space-x-4" style={{paddingLeft:"5px",paddingRight:"5px"}}>{BannerImages}</div>
       <div style={{paddingTop:"10px"}}>
          <h1 className="pt-6" style={{marginLeft:"10px",color:"gray"}}><b>Snapshots</b> </h1>
          <div className="flex space-x-8" style={{backgroundColor:"black",marginLeft:"5px",marginTop:"10px"}}>{image}
@@ -609,6 +620,11 @@ breadcrumbScheme.push({
             </div>
           </div>          
         </div>
+        <div className="pt-6" style={{paddingBottom:"10px"}}>
+          <h1 style={{marginLeft:"15px",color:"gray"}}><b>Insights by interest</b> </h1>
+        <div className="flex space-x-8 pt-6" style={{backgroundColor:"",paddingLeft:"10px"}}>{DetailsCards}</div>
+        </div>
+        
         <div className="flex pt-6" style={{paddingLeft:"10px"}}>
             <div className="" style={{paddingRight:"20px"}}>{Childimages}</div>
             <div className="w-1/2">
@@ -622,11 +638,6 @@ breadcrumbScheme.push({
                 </a>
                 </div>
         </div>
-        <div className="pt-6" >
-          <h1 style={{marginLeft:"15px",color:"gray"}}><b>Insights by interest</b> </h1>
-        <div className="flex space-x-8 pt-6" style={{backgroundColor:"",paddingLeft:"15px"}}>{DetailsCards}</div>
-        </div>
-       
               {/* <div className="w-1/2 flex flex-col space-y-4 text-xl ">{c_details.description}
                  <div><a href="#">
                    <div className=""> {<Cta
@@ -637,46 +648,29 @@ breadcrumbScheme.push({
                    </div> </a>
                  </div> 
               </div>  */}
-              {/* <Cta /> */}
-           {/* </div>      */}
-        {/* <Footer _site={_site}/>   
-        <div className="" style={{backgroundColor:"DarkGoldenRod"}}>    
-           <div className="text-2xl" style={{textAlign:"center"}}>Services				   		          
-                <div className="flex-none">
-		                {c_servicesIn?.headingName}  
-                    <div className="text-xl flex">                  
-                        <a className="flex gap-x-10 font-semibold">{services}</a> 
-                        </div>                     
-                </div>
-			        </div>             				  					  					 
-				   </div>  */}
-           	 
+              {/* <Cta /> */}          	 
         {/* <div>
         <Faq faqs={c_faqs} />
      </div> */}
-     {/* <div><About about={c_about}/></div> */}
+    
      
-     {/* <h1 className="" style={{color:"GrayText",paddingLeft:"20px"}}><b>Explore</b></h1>
-     <div  className="flex" style={{backgroundColor:"lightBlue",height:"500px"}}>
-         <div className="w-1/2" style={{height:"600px",width:"800px",paddingTop:"55px"}}> {Explore} 
-         </div>
-            <div className="w-1/2"  >
-               <div className="" style={{paddingTop:"100px",paddingLeft:"50px"}}>
-                <h1 className="" style={{fontSize:"40px",color:"GrayText"}}><b>Unlock Exclusive Offers</b></h1><br/><br/>
-               <p style={{fontSize:"30px",color:"GrayText"}}>For Lightning Fast Ordering Experience </p><br/>
-               <p style={{fontSize:"30px",color:"GrayText"}}> download the Domino's App</p>
-               </div>
-               <div className="flex space-x-8 " style={{paddingTop:"100px",paddingLeft:"50px"}}>{Googlelogo}
-              </div>
-            </div>
-     </div>
-     <div className="pt-6">
-     <div className="pt-6" style={{paddingLeft:"10px",backgroundColor:"LightGray"}} >
-      <h1 style={{color:"DodgerBlue"}}><b>Domino's Pizza: Delivering Happiness </b></h1>
-       <p className="pt-6" style={{fontSize:"20px"}}>{description}</p> 
-     </div>   
-     </div> 
-     <Faq faqs={c_faq} /> */}
+     
+      <div className="flex pt-6">
+        <div className="flex" style={{backgroundColor:"DarkSlateGrey"}}>
+            <div className="" >{Explore}</div>
+            <div className="w-1/2" style={{}}>
+              <div className="" style={{marginLeft:"150px"}}>
+                 <h1 style={{marginTop:"30px",color:"white",fontSize:"40px"}}>Shape the futures of<br/><br/>Technology </h1>
+                <p style={{marginTop:"30px",color:"gray",fontSize:"20px"}}>{c_explorecareerdescription.description}</p>
+                <a className="" href={c_explorecareerdescription.getToKnowUs.link} style={{}} >
+                    <button className="card-img-top rounded-full" style={{backgroundColor:"DeepPink",color:"white",height:"50px",width:"180px",fontSize:"20px",marginTop:"60px"}}>
+                       {c_explorecareerdescription.getToKnowUs.label} 
+                    </button>
+                </a>
+                </div>
+                </div>
+        </div>
+        </div>
      <Footer _site={_site}/>    
      </PageLayout>
       </AnalyticsScopeProvider>

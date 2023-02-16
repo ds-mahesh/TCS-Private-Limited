@@ -73,7 +73,7 @@ const Footer = (props: any) => {
 
 	return (
 		<>
-			<footer className="site-footer inline-block w-full pt-6" style={{}}>
+			<footer className="site-footer inline-block w-full" style={{backgroundColor:"DarkSlateGrey",marginTop:"2px"}}>
 							 		  					  					  
 				    
 				<div style={{backgroundColor:"DarkSlateGrey"}} >

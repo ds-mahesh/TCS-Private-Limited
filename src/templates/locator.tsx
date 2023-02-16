@@ -219,7 +219,7 @@ const Locator: Template<TemplateRenderProps>= ({
         <AnalyticsScopeProvider name={""}>
       <PageLayout _site={_site}>
       <Header _site={_site}/>
-      <Nav/>
+      {/* <Nav/> */}
       <div style={{backgroundColor:"black"}}>
          <div className="flex space-x-4" style={{paddingLeft:"5px"}}>{BannerImages}</div>
       </div>   
