@@ -358,7 +358,7 @@ const  DetailsCards = c_detailsCards?.map((link: any) => (
   ));
 
   const  BannerImages = c_bannerImages?.map((link: any) => (
-    <div className="w-full">
+    <div className="">
        <div className="" style={{}}> 
             <img src={link?.image?.url}  className="" style={{height:"400px"}}/>         
              <p style={{fontSize:"40px",color:"white",marginTop:"-370px",marginLeft:"20px"}}><b>{link?.description}</b></p>
