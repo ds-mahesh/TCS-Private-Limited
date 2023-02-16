@@ -54,7 +54,7 @@
 
      //var baseURL = params.baseURL + (params.baseURL.includes('?') ? '&' : '?');
     var baseURL = "https://liveapi-sandbox.yext.com/v2/accounts/me/entities?";
-    var api_key = "105f07d362323bad1c2fcae6671e6ec3";
+    var api_key = "360a1ca0321d43864366de34441711b0";
     var vparam = "20181017";
     var limit = 5;
     var offset=params.offset;
@@ -79,7 +79,7 @@
 
         // var baseURL = params.baseURL + (params.baseURL.includes('?') ? '&' : '?');
        var baseURL = "https://liveapi-sandbox.yext.com/v2/accounts/me/entities/geosearch?radius=2500";
-       var api_key = "105f07d362323bad1c2fcae6671e6ec3";
+       var api_key = "360a1ca0321d43864366de34441711b0";
        var vparam = "20181017";
        var location=params.location;
        var limit = params.limit;
@@ -107,7 +107,7 @@
 
         //var baseURL = params.baseURL + (params.baseURL.includes('?') ? '&' : '?');
        var baseURL = "https://liveapi-sandbox.yext.com/v2/accounts/me/entities?";
-       var api_key = "105f07d362323bad1c2fcae6671e6ec3";
+       var api_key = "360a1ca0321d43864366de34441711b0";
        var vparam = "20181017";
        var limit =params.limit;
        var offset=params.offset;
@@ -132,7 +132,7 @@
 
         
        var baseURL =  "https://liveapi-sandbox.yext.com/v2/accounts/me/entities/"+`${param.entityId}`+'?';
-       var api_key = "105f07d362323bad1c2fcae6671e6ec3";
+       var api_key = "360a1ca0321d43864366de34441711b0";
        var vparam = "20181017";
        var entityTypes = "location";
       //  var savedFilterIds = "953846729";
