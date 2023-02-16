@@ -76,7 +76,7 @@ const Footer = (props: any) => {
 			<footer className="site-footer inline-block w-full pt-6" style={{}}>
 							 		  					  					  
 				    
-				<div style={{backgroundColor:"gray"}} >
+				<div style={{backgroundColor:"DarkSlateGrey"}} >
 					
 				<div  className="container px-6 pt-6" style={{height:"300px"}}>
 					<div className="store-locator">					   
@@ -142,7 +142,7 @@ const Footer = (props: any) => {
 			<div className="flex" style={{backgroundColor:"black"}}>
 				<div>
 					<a className="navbar-item" href={_site?.c_tcslogo?.link} >   
-				    <img style={{height:"80px",width:"130px"}} src={_site?.c_tcslogo?.icons?.url} />       
+				    <img style={{height:"50px",width:"150px",marginTop:"10px",paddingLeft:"10px"}} src={_site?.c_tcslogo?.icons?.url} />       
                     </a>
 				 </div>
 				 <div className="flex space-x-4 pt-6" style={{marginTop:"20px",marginLeft:"50px"}}>

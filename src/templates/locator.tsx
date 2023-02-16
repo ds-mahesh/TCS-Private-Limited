@@ -35,6 +35,7 @@ export const config: TemplateConfig = {
     // directly as props to the default exported function.
     fields: [
       "name",
+      "c_locatorbannerimages"
      
 
      
@@ -169,17 +170,23 @@ const Locator: Template<TemplateRenderProps>= ({
    _site
    } = document;
 
-  //  const Cuponcard= _site.c_cardlogo?.map((i:any)=>(   
-  //   <img src={i.url} className="card-img-top rounded-lg" alt="..." style={{height:"300px",width:"400px"}}/>  
-  // ));
+   const  BannerImages = _site.c_locatorbannerimages?.map((link: any) => (
+    <div className="" style={{paddingTop:"10px",paddingBottom:"80px"}}>
+       <div className="" style={{}}>            
+            <img src={link?.image?.url}  className="w-full" style={{height:"400px"}}/>         
+             <p style={{fontSize:"20px",color:"white",marginTop:"-290px",marginLeft:"20px"}}><b>{link?.description}</b></p>
+             <h1 style={{marginTop:"-150px",paddingLeft:"10px",fontSize:"40px",color:"white"}}>{link?.heading}</h1>
+       </div> 
+       <div style={{marginLeft:"10px",marginTop:"220px"}}> 
+           <a className="pt-6" href={link?.cta?.link}  >
+              <button className="card-img-top rounded-full" style={{backgroundColor:"DeepPink",color:"white",height:"50px",width:"140px",fontSize:"20px"}}>
+                 <b>{link?.cta?.label} </b>
+              </button>
+           </a>
+       </div>      
+    </div>   
+    ));
 
-  // const Cuponcard1= _site.c_cardlogo1?.map((i:any)=>(   
-  //   <img src={i.url} className="card-img-top rounded-lg " alt="..." style={{height:"300px",width:"400px"}}/>  
-  // ));
-
-  // const Cuponcard2= _site.c_cardlogo2?.map((i:any)=>(   
-  //   <img src={i.url} className="card-img-top rounded-lg" alt="..." style={{height:"300px",width:"400px"}}/>  
-  // ));
 
   let templateData = { document: document, __meta: __meta };
   const endpoints =  {
@@ -212,11 +219,10 @@ const Locator: Template<TemplateRenderProps>= ({
         <AnalyticsScopeProvider name={""}>
       <PageLayout _site={_site}>
       <Header _site={_site}/>
-        {/* <div className="flex space-x-24 " style={{backgroundColor:"lightblue"}}>
-          <div>{Cuponcard}</div>
-          <div>{Cuponcard1}</div>
-          <div>{Cuponcard2}</div>
-        </div> */}
+      <Nav/>
+      <div style={{backgroundColor:"black"}}>
+         <div className="flex space-x-4" style={{paddingLeft:"5px"}}>{BannerImages}</div>
+      </div>   
       {/* <Banner /> */}
         <SearchHeadlessProvider
           experienceKey={AnswerExperienceConfig.experienceKey}

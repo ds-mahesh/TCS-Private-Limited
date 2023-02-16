@@ -74,7 +74,7 @@ export const config: TemplateConfig = {
       "description",
       "c_childimages",
       "c_childdescription",
-      // "c_bannerimage",
+      "c_bannerimage",
       "c_bannerImages",
       "c_snapshots",
       "c_detailsCards",
@@ -289,7 +289,6 @@ const Location: Template<ExternalApiRenderData> = ({
     hours,
     mainPhone,
     photoGallery,
-    c_bannerImage,
     c_canonical,
     description,
     additionalHoursText,
@@ -303,7 +302,8 @@ const Location: Template<ExternalApiRenderData> = ({
     c_detailsCards,
     c_childimages,
     c_childdescription,
-    c_bannerImages
+    c_bannerImages,
+    c_bannerimage
    
     // c_faq
   } = document;
@@ -312,6 +312,17 @@ const Location: Template<ExternalApiRenderData> = ({
 	// 	  <span>{link.label}</span><br />
 	// 	</a>
 	//   ));
+
+//   const  Details = c_bannerimage?.map((link: any) => (
+//     <div className="" > 
+//          <img src={link.url}  className="" style={{height:"300px"}}/>         
+//     </div> 
+// )); 
+
+
+
+
+
   const image=c_snapshots?.map((i:any)=>(  
     <div style={{color:"white"}}> 
    <img className="rounded-full" style={{width:"200px"}} src={i.photo.url} alt="..."/>  
@@ -342,7 +353,7 @@ const  DetailsCards = c_detailsCards?.map((link: any) => (
   ));
 
   const  BannerImages = c_bannerImages?.map((link: any) => (
-    <div>
+    <div className="">
        <div className="" style={{}}> 
             <img src={link?.image?.url}  className="w-full" style={{height:"400px"}}/>         
              <p style={{fontSize:"40px",color:"white",marginTop:"-370px",marginLeft:"20px"}}><b>{link?.description}</b></p>
@@ -497,7 +508,7 @@ breadcrumbScheme.push({
     return element.image.url
   }) : null;
   console.log(document)
-  let bannerimage = c_bannerImage && c_bannerImage?.image?.url;
+  // let bannerimage = c_bannerImage && c_bannerImage?.image?.url;
   
   // let offercard = c_offercard && c_offercard.image?.url;
 
@@ -556,8 +567,9 @@ breadcrumbScheme.push({
           parents={dm_directoryParents}
           baseUrl={relativePrefixToRoot}
         ></BreadCrumbs>
-      {/* <Banner c_bannerImage={c_bannerImage}  name={name}/> */}
-      <div style={{paddingLeft:"5px"}}>{BannerImages}</div>
+        {/* <div>{Details}</div> */}
+      {/* <Banner /> */}
+      <div className="flex space-x-4" style={{paddingLeft:"5px"}}>{BannerImages}</div>
       <div style={{paddingTop:"10px"}}>
          <h1 className="pt-6" style={{marginLeft:"10px",color:"gray"}}><b>Snapshots</b> </h1>
          <div className="flex space-x-8" style={{backgroundColor:"black",marginLeft:"5px",marginTop:"10px"}}>{image}

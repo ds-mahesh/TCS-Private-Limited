@@ -20,10 +20,10 @@ const Header = ( props : any) => {
 
   return (
     <>
-         <div style={{backgroundColor:"black"}}>
+         <div style={{backgroundColor:"DarkSlateGrey"}}>
             <div style={{fontSize:"20px",height:"80px"}} className="flex gap-x-16 font-semibold">
-                 <img style={{height:"80px",width:"130px"}} src={_site?.c_tcslogo?.icons?.url} />
-                  <div style={{padding:"20px",marginLeft:"10px",color:"white"}} className="flex gap-x-8 text-2xl ">
+                 <img style={{height:"50px",width:"150px",marginTop:"10px",paddingLeft:"10px"}} src={_site?.c_tcslogo?.icons?.url} />
+                  <div style={{padding:"25px",marginLeft:"10px",color:"white"}} className="flex gap-x-8 text-xl ">
                      {linkDoms}
                      {/* <a href="#">
                        <div className=""> {<Cta
@@ -33,7 +33,7 @@ const Header = ( props : any) => {
                           ></Cta>  }
                        </div> </a> */}
                   </div>  
-                  <img style={{height:"80px",width:"130px",marginLeft:"150px"}} src={_site?.c_tATALogo?.icons?.url} />
+                  <img style={{height:"80px",width:"130px",marginLeft:"220px"}} src={_site?.c_tATALogo?.icons?.url} />
            </div>
         </div>         
     </>

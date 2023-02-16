@@ -1,11 +1,11 @@
-export const stagingBaseurl = "https://main-usually--assistant--coyote-sbx-pgsdemo-com.sbx.preview.pagescdn.com/";
+export const stagingBaseurl = "https://main-caringly--head--crane-sbx-pgsdemo-com.sbx.preview.pagescdn.com/";
 export const cookieText =
   " We use cookies on our website. Some are essential to enable to site to function, others are analytical and help us monitor site usage, whilst some are used for the personalisation of ads. You are free to manage this via your browser setting at any time. To learn more about how we use these cookies, please see our ";
 export const cookiesUrl = "https://www.matalan.co.uk/corporate/cookies";
 export const baseuRL = "https://liveapi-sandbox.yext.com/v2/accounts/me/entities/geosearch?radius=500"
-export const apikey_for_entity = "ea7ea73738da090eba9cafbc45220b0b"
-export const favicon="https://www.dominos.co.in/assets/Logo.png";
-export const apiKey = "f5db9f723a7d2fd5badfb2d57d1ab853";
+export const apikey_for_entity = "6c32848c6d0ebdfaa75410606b520800"
+export const favicon="https://mma.prnewswire.com/media/1477373/TCS_Logo.jpg?p=facebook";
+export const apiKey = "360a1ca0321d43864366de34441711b0";
 export const googleApikey = "AIzaSyDZNQlSlEIkFAct5VzUtsP4dSbvOr2bE18";
 export const regionNames = new Intl.DisplayNames(['en'], { type: 'region' })
 export const AnalyticsEnableDebugging  = true;
