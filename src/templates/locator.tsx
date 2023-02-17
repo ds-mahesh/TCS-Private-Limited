@@ -14,7 +14,7 @@ import { Address } from "../types/search/locations";
 import { useSearchActions } from "@yext/search-headless-react";
 import { useEffect } from "react";
 import SearchLayout from "../components/locatorPage/SearchLayout";
-import {stagingBaseurl, favicon, AnalyticsEnableDebugging, AnalyticsEnableTrackingCookie} from "../../sites-global/global"
+import { stagingBaseurl, favicon, AnalyticsEnableDebugging, AnalyticsEnableTrackingCookie } from "../../sites-global/global"
 import Newsletter from "../components/locatorPage/Newsletter";
 import { JsonLd } from "react-schemaorg";
 import { StaticData } from "../../sites-global/staticData";
@@ -36,9 +36,9 @@ export const config: TemplateConfig = {
     fields: [
       "name",
       "c_locatorbannerimages"
-     
 
-     
+
+
     ],
     // Defines the scope of entities that qualify for this stream.
     filter: {
@@ -60,148 +60,148 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
   path,
   document,
 }): HeadConfig => {
- return {
-   title:`${document.c_meta_title?document.c_meta_title:`Timber Merchants Near Me - Find MGM Timber Branch Locator Here.`}`,
-   charset: "UTF-8",
-   viewport: "width=device-width, initial-scale=1",
-   tags: [
-     {
-       type: "meta",
-       attributes: {
-         name: "description",
-         content: `${document.c_meta_description?document.c_meta_description:`View Timber Merchants near you today at MGM Timber. We stock high-quality, robust products at competitive rates.`}`,
-       },
-     },
+  return {
+    title: `${document.c_meta_title ? document.c_meta_title : `Timber Merchants Near Me - Find MGM Timber Branch Locator Here.`}`,
+    charset: "UTF-8",
+    viewport: "width=device-width, initial-scale=1",
+    tags: [
+      {
+        type: "meta",
+        attributes: {
+          name: "description",
+          content: `${document.c_meta_description ? document.c_meta_description : `View Timber Merchants near you today at MGM Timber. We stock high-quality, robust products at competitive rates.`}`,
+        },
+      },
 
-     {
-       type: "meta",
-       attributes: {
-         name: "author",
-         content: StaticData.Brandname,
-       },
-     },
+      {
+        type: "meta",
+        attributes: {
+          name: "author",
+          content: StaticData.Brandname,
+        },
+      },
 
-     {
-       type: "meta",
-       attributes: {
-         name: "robots",
-         content: "noindex, nofollow",
-       },
-     },
-     {
-      type: "link",
-      attributes: {
-        rel: "shortcut icon",
-        href: favicon,
+      {
+        type: "meta",
+        attributes: {
+          name: "robots",
+          content: "noindex, nofollow",
+        },
       },
-    },
+      {
+        type: "link",
+        attributes: {
+          rel: "shortcut icon",
+          href: favicon,
+        },
+      },
 
-    //  {
-    //    type: "link",
-    //    attributes: {
-    //      rel: "canonical",
-    //      href: `${
-    //        document._site.c_canonical?document.c_canonical:stagingBaseurl
-            
-    //      }`,
-    //    },
-    //  },
- 
-     {
-       type: "meta",
-       attributes: {
-         property: "og:description",
-         content: `${document.c_meta_description?document.c_meta_description:`View Timber Merchants near you today at MGM Timber. We stock high-quality, robust products at competitive rates.`}`,
-       },
-     },
-     {
-       type: "meta",
-       attributes: {
-         property: "og:title",
-         content: `${document.c_meta_title?document.c_meta_title:`Timber Merchants Near Me - Find MGM Timber Branch Locator Here.`}`,
-       },
-     },
-     {
-       type: "meta",
-       attributes: {
-         property: "og:image",
-         content: favicon,
-       },
-     },
-     {
-      type: "meta",
-      attributes: {
-        name: "twitter:card",
-        content: "summary",
+      //  {
+      //    type: "link",
+      //    attributes: {
+      //      rel: "canonical",
+      //      href: `${
+      //        document._site.c_canonical?document.c_canonical:stagingBaseurl
+
+      //      }`,
+      //    },
+      //  },
+
+      {
+        type: "meta",
+        attributes: {
+          property: "og:description",
+          content: `${document.c_meta_description ? document.c_meta_description : `View Timber Merchants near you today at MGM Timber. We stock high-quality, robust products at competitive rates.`}`,
+        },
       },
-    },
-    {
-      type: "meta",
-      attributes: {
-        name: "twitter:description",
-        content:`${document.c_meta_description?document.c_meta_description:`View Timber Merchants near you today at MGM Timber. We stock high-quality, robust products at competitive rates.`}`,
+      {
+        type: "meta",
+        attributes: {
+          property: "og:title",
+          content: `${document.c_meta_title ? document.c_meta_title : `Timber Merchants Near Me - Find MGM Timber Branch Locator Here.`}`,
+        },
       },
-    },
-    {
-      type: "meta",
-      attributes: {
-        name: "twitter:title",
-        content: `${document.c_meta_title?document.c_meta_title:`Timber Merchants Near Me - Find MGM Timber Branch Locator Here.`}`,
+      {
+        type: "meta",
+        attributes: {
+          property: "og:image",
+          content: favicon,
+        },
       },
-    },
-    {
-      type: "meta",
-      attributes: {
-        name: "twitter:image",
-        content: favicon
+      {
+        type: "meta",
+        attributes: {
+          name: "twitter:card",
+          content: "summary",
+        },
       },
-    },
-   
-   ],
-   
- };
+      {
+        type: "meta",
+        attributes: {
+          name: "twitter:description",
+          content: `${document.c_meta_description ? document.c_meta_description : `View Timber Merchants near you today at MGM Timber. We stock high-quality, robust products at competitive rates.`}`,
+        },
+      },
+      {
+        type: "meta",
+        attributes: {
+          name: "twitter:title",
+          content: `${document.c_meta_title ? document.c_meta_title : `Timber Merchants Near Me - Find MGM Timber Branch Locator Here.`}`,
+        },
+      },
+      {
+        type: "meta",
+        attributes: {
+          name: "twitter:image",
+          content: favicon
+        },
+      },
+
+    ],
+
+  };
 };
 
-const Locator: Template<TemplateRenderProps>= ({
-   document,
-   __meta,
- }) => {
-   const {    
-   _site
-   } = document;
+const Locator: Template<TemplateRenderProps> = ({
+  document,
+  __meta,
+}) => {
+  const {
+    _site
+  } = document;
 
-   const  BannerImages = _site.c_locatorbannerimages?.map((link: any) => (
-    <div className="" style={{paddingTop:"10px",paddingBottom:"80px"}}>
-       <div className="" style={{}}>            
-            <img src={link?.image?.url}  className="w-full" style={{height:"400px"}}/>         
-             <p style={{fontSize:"20px",color:"white",marginTop:"-290px",marginLeft:"20px"}}><b>{link?.description}</b></p>
-             <h1 style={{marginTop:"-150px",paddingLeft:"10px",fontSize:"40px",color:"white"}}>{link?.heading}</h1>
-       </div> 
-       <div style={{marginLeft:"10px",marginTop:"220px"}}> 
-           <a className="pt-6" href={link?.cta?.link}  >
-              <button className="card-img-top rounded-full" style={{backgroundColor:"DeepPink",color:"white",height:"50px",width:"140px",fontSize:"20px"}}>
-                 <b>{link?.cta?.label} </b>
-              </button>
-           </a>
-       </div>      
-    </div>   
-    ));
+  const BannerImages = _site.c_locatorbannerimages?.map((link: any) => (
+    <div className="" style={{ paddingTop: "10px", paddingBottom: "80px" }}>
+      <div className="" style={{}}>
+        <img src={link?.image?.url} className="w-full" style={{ height: "400px" }} />
+        <p style={{ fontSize: "20px", color: "white", marginTop: "-290px", marginLeft: "20px" }}><b>{link?.description}</b></p>
+        <h1 style={{ marginTop: "-150px", paddingLeft: "10px", fontSize: "40px", color: "white" }}>{link?.heading}</h1>
+      </div>
+      <div style={{ marginLeft: "10px", marginTop: "220px" }}>
+        <a className="pt-6" href={link?.cta?.link}  >
+          <button className="card-img-top rounded-full" style={{ backgroundColor: "DeepPink", color: "white", height: "50px", width: "140px", fontSize: "20px" }}>
+            <b>{link?.cta?.label} </b>
+          </button>
+        </a>
+      </div>
+    </div>
+  ));
 
 
   let templateData = { document: document, __meta: __meta };
-  const endpoints =  {
+  const endpoints = {
     universalSearch: "https://liveapi-sandbox.yext.com/v2/accounts/me/answers/query",
     verticalSearch: "https://liveapi-sandbox.yext.com/v2/accounts/me/answers/vertical/query",
     questionSubmission: "https://liveapi-sandbox.yext.com/v2/accounts/me/createQuestion",
     universalAutocomplete: "https://liveapi-sandbox.yext.com/v2/accounts/me/answers/autocomplete",
     verticalAutocomplete: "https://liveapi-sandbox.yext.com/v2/accounts/me/answers/vertical/autocomplete",
     filterSearch: "https://liveapi-sandbox.yext.com/v2/accounts/me/answers/filtersearch",
-   
+
   }
-  var Api="AIzaSyDZNQlSlEIkFAct5VzUtsP4dSbvOr2bE18";  
+  var Api = "AIzaSyDZNQlSlEIkFAct5VzUtsP4dSbvOr2bE18";
   return (
     <>
-    <JsonLd<locator>
+      <JsonLd<locator>
         item={{
           "@context": "https://schema.org",
           "@type": "Organization",
@@ -210,40 +210,40 @@ const Locator: Template<TemplateRenderProps>= ({
           logo: favicon,
         }}
       />
-          <AnalyticsProvider
+      <AnalyticsProvider
         templateData={templateData}
-        enableDebugging={AnalyticsEnableDebugging} 
+        enableDebugging={AnalyticsEnableDebugging}
         enableTrackingCookie={AnalyticsEnableTrackingCookie}
       >
         {" "}
         <AnalyticsScopeProvider name={""}>
-      <PageLayout _site={_site}>
-      <Header _site={_site}/>
-      {/* <Nav/> */}
-      <div style={{backgroundColor:"black"}}>
-         <div className="flex space-x-4" style={{paddingLeft:"5px"}}>{BannerImages}</div>
-      </div>   
-      {/* <Banner /> */}
-        <SearchHeadlessProvider
-          experienceKey={AnswerExperienceConfig.experienceKey}
-          locale={AnswerExperienceConfig.locale}
-          apiKey={AnswerExperienceConfig.apiKey}
-          verticalKey={AnswerExperienceConfig.verticalKey}
-          experienceVersion="STAGING"
-          sessionTrackingEnabled={true}
-          endpoints={AnswerExperienceConfig.endpoints}    
-        >
-          <SearchLayout _site={_site}/>
-     
-        </SearchHeadlessProvider>
-       
-   
-      </PageLayout>
-      
-      </AnalyticsScopeProvider>
+          <PageLayout _site={_site}>
+            <Header _site={_site} />
+            {/* <Nav/> */}
+            <div style={{ backgroundColor: "black" }}>
+              <div className="flex space-x-4" style={{ paddingLeft: "5px" }}>{BannerImages}</div>
+            </div>
+            {/* <Banner /> */}
+            <SearchHeadlessProvider
+              experienceKey={AnswerExperienceConfig.experienceKey}
+              locale={AnswerExperienceConfig.locale}
+              apiKey={AnswerExperienceConfig.apiKey}
+              verticalKey={AnswerExperienceConfig.verticalKey}
+              experienceVersion="STAGING"
+              sessionTrackingEnabled={true}
+              endpoints={AnswerExperienceConfig.endpoints}
+            >
+              <SearchLayout _site={_site} />
+
+            </SearchHeadlessProvider>
+
+
+          </PageLayout>
+
+        </AnalyticsScopeProvider>
       </AnalyticsProvider>
-      <Footer _site={_site}/>
-     
+      <Footer _site={_site} />
+
     </>
   );
 };

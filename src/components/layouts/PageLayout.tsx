@@ -6,20 +6,19 @@ import PhotoSlider from "../locationDetail/PhotoSlider";
 type Props = {
   _site: any;
   children?: React.ReactNode;
-  global?:any;
-  templateData?:React.ReactNode;
+  global?: any;
+  templateData?: React.ReactNode;
 };
 
 const PageLayout = ({ _site, children }: Props) => {
   return (
     <>
-    {/* <PhotoSlider /> */}
+      {/* <PhotoSlider /> */}
       {children}
-     
+
     </>
   );
 };
 
 export default PageLayout;
 
-  

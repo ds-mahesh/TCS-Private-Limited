@@ -83,7 +83,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
   path,
   document,
 }): HeadConfig => {
-  
+
   return {
     title: document.name,
     charset: "UTF-8",
@@ -154,7 +154,7 @@ const country: Template<TemplateRenderProps> = ({
 
             if (!detl.slug) {
               let slugString = detl.id + " " + detl.name;
-              let slug =slugString;
+              let slug = slugString;
               detlslug1 = `${slug}.html`;
             } else {
               detlslug1 = `${detl.slug.toString()}.html`;
@@ -176,7 +176,7 @@ const country: Template<TemplateRenderProps> = ({
       <li className=" storelocation-category">
         <a
           key={entity.slug}
-          href={slug +"/"+ entity.slug + ".html"}
+          href={slug + "/" + entity.slug + ".html"}
         >
           {entity.name} ({entity.dm_directoryChildrenCount})
         </a>
@@ -192,7 +192,7 @@ const country: Template<TemplateRenderProps> = ({
   return (
     <>
       <PageLayout _site={_site}>
-        <Header _site={_site}/>
+        <Header _site={_site} />
         <BreadCrumbs
           name={regionNames.of(name)}
           address={address}
@@ -202,7 +202,7 @@ const country: Template<TemplateRenderProps> = ({
         {/* <div className="location-dtl">
           <Banner name={regionNames.of(name)} c_bannerImage={bannerimage} />
         </div> */}
-        <div className="content-list" style={{backgroundColor:"lightgreen"}}>
+        <div className="content-list" style={{ backgroundColor: "lightgreen" }}>
           <div className="container">
             <div className="sec-title">
               <h2 style={{ textAlign: "center" }}>
@@ -217,9 +217,9 @@ const country: Template<TemplateRenderProps> = ({
 
           </div>
         </div>
-       
+
       </PageLayout>
-      <Footer _site={_site}/>
+      <Footer _site={_site} />
     </>
   );
 };

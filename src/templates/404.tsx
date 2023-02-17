@@ -18,8 +18,8 @@ export const config: TemplateConfig = {
     // directly as props to the default exported function.
     fields: [
       "name",
-      
-      
+
+
     ],
     // Defines the scope of entities that qualify for this stream.
     filter: {

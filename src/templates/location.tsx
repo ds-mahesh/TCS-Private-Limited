@@ -40,7 +40,7 @@ import Faq from "../components/locationDetail/Faqs";
 import { StaticData } from "../../sites-global/staticData";
 import Header from "../components/layouts/header";
 import Footer from "../components/layouts/footer";
-import {apikey_for_entity, baseuRL,stagingBaseurl,AnalyticsEnableDebugging,AnalyticsEnableTrackingCookie, favicon } from "../../sites-global/global";
+import { apikey_for_entity, baseuRL, stagingBaseurl, AnalyticsEnableDebugging, AnalyticsEnableTrackingCookie, favicon } from "../../sites-global/global";
 import {
   AnalyticsProvider,
   AnalyticsScopeProvider,
@@ -86,15 +86,15 @@ export const config: TemplateConfig = {
       // "c_locationpagescards",
       // "c_faq.question",
       // "c_faq.answer",
-      
-      
-      
-      
-      
+
+
+
+
+
     ],
     // Defines the scope of entities that qualify for this stream.
     filter: {
-     entityTypes:['location']
+      entityTypes: ['location']
 
     },
     // The entity language profiles that documents will be generated for.
@@ -151,7 +151,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
   document,
 }): HeadConfig => {
   return {
-    title: document.c_meta_title?document.c_meta_title:`${document.name} Store of MGM Timber`,
+    title: document.c_meta_title ? document.c_meta_title : `${document.name} Store of MGM Timber`,
     charset: "UTF-8",
     viewport: "width=device-width, initial-scale=1",
     tags: [
@@ -159,11 +159,11 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
         type: "meta",
         attributes: {
           name: "description",
-          content: `${document.c_meta_description?document.c_meta_description:`Find the ${document.name} Timber Store in ${document.address.city}. We stock high-quality, robust products at competitive rates.`}`,
+          content: `${document.c_meta_description ? document.c_meta_description : `Find the ${document.name} Timber Store in ${document.address.city}. We stock high-quality, robust products at competitive rates.`}`,
         },
       },
 
-     
+
       {
         type: "meta",
         attributes: {
@@ -194,7 +194,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
         type: "meta",
         attributes: {
           property: "og:description",
-          content: `${document.c_meta_description?document.c_meta_description:`Find the ${document.name} Timber Store in ${document.address.city}. We stock high-quality, robust products at competitive rates.`}`,
+          content: `${document.c_meta_description ? document.c_meta_description : `Find the ${document.name} Timber Store in ${document.address.city}. We stock high-quality, robust products at competitive rates.`}`,
         },
       },
       {
@@ -229,14 +229,14 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
         type: "meta",
         attributes: {
           name: "twitter:title",
-          content: document.c_meta_title?document.c_meta_title:`${document.name} Store of MGM Timber`,
+          content: document.c_meta_title ? document.c_meta_title : `${document.name} Store of MGM Timber`,
         },
       },
       {
         type: "meta",
         attributes: {
           name: "twitter:description",
-          content: `${document.c_meta_description?document.c_meta_description:`Find the ${document.name} Timber Store in ${document.address.city}. We stock high-quality, robust products at competitive rates.`}`,
+          content: `${document.c_meta_description ? document.c_meta_description : `Find the ${document.name} Timber Store in ${document.address.city}. We stock high-quality, robust products at competitive rates.`}`,
         },
       },
       /// twitter tag
@@ -254,17 +254,17 @@ type ExternalApiData = TemplateProps & { externalApiData: nearByLocation };
 export const transformProps: TransformProps<ExternalApiData> = async (
   data: any
 ) => {
-//   const url = `https://liveapi-sandbox.yext.com/v2/accounts/me/entities/geosearch?radius=2500&location=INDIA&api_key=2ed997f92ca318240b8a95375187f129&v=20181201&resolvePlaceholders=true&entityTypes=location&limit=4`
-//   const externalApiData = (await fetch(url).then((res: any) =>
-//     res.json()
-//   )) as nearByLocation;
-//   return { ...data, externalApiData };
-// };
+  //   const url = `https://liveapi-sandbox.yext.com/v2/accounts/me/entities/geosearch?radius=2500&location=INDIA&api_key=2ed997f92ca318240b8a95375187f129&v=20181201&resolvePlaceholders=true&entityTypes=location&limit=4`
+  //   const externalApiData = (await fetch(url).then((res: any) =>
+  //     res.json()
+  //   )) as nearByLocation;
+  //   return { ...data, externalApiData };
+  // };
 
   var location = `${data.document.yextDisplayCoordinate ? data.document.yextDisplayCoordinate.latitude : data.document.displayCoordinate.latitude},${data.document.yextDisplayCoordinate ? data.document.yextDisplayCoordinate.longitude : data.document.displayCoordinate.longitude}`;
 
-    const url = `${AnswerExperienceConfig.endpoints.verticalSearch}?experienceKey=${AnswerExperienceConfig.experienceKey}&api_key=${AnswerExperienceConfig.apiKey}&v=20220511&version=${AnswerExperienceConfig.experienceVersion}&locale=${AnswerExperienceConfig.locale}&location=${location}&locationRadius=${AnswerExperienceConfig.locationRadius}&verticalKey=${AnswerExperienceConfig.verticalKey}&limit=4&retrieveFacets=true&skipSpellCheck=false&sessionTrackingEnabled=true&source=STANDARD`;
- console.log(url)
+  const url = `${AnswerExperienceConfig.endpoints.verticalSearch}?experienceKey=${AnswerExperienceConfig.experienceKey}&api_key=${AnswerExperienceConfig.apiKey}&v=20220511&version=${AnswerExperienceConfig.experienceVersion}&locale=${AnswerExperienceConfig.locale}&location=${location}&locationRadius=${AnswerExperienceConfig.locationRadius}&verticalKey=${AnswerExperienceConfig.verticalKey}&limit=4&retrieveFacets=true&skipSpellCheck=false&sessionTrackingEnabled=true&source=STANDARD`;
+  console.log(url)
   const externalApiData = (await fetch(url).then((res: any) =>
     res.json()
 
@@ -309,98 +309,98 @@ const Location: Template<ExternalApiRenderData> = ({
     c_bannerimage,
     c_explorecareerdescription,
     c_explorecareerphoto
-   
+
     // c_faq
   } = document;
   // const services = c_servicesIn?.map((link: any) => (
-	// 	<a className="navbar-item" href={link.link} >
-	// 	  <span>{link.label}</span><br />
-	// 	</a>
-	//   ));
+  // 	<a className="navbar-item" href={link.link} >
+  // 	  <span>{link.label}</span><br />
+  // 	</a>
+  //   ));
 
-//   const  Details = c_bannerimage?.map((link: any) => (
-//     <div className="" > 
-//          <img src={link.url}  className="" style={{height:"300px"}}/>         
-//     </div> 
-// )); 
-
-
+  //   const  Details = c_bannerimage?.map((link: any) => (
+  //     <div className="" > 
+  //          <img src={link.url}  className="" style={{height:"300px"}}/>         
+  //     </div> 
+  // )); 
 
 
 
-  const image=c_snapshots?.map((i:any)=>(  
-    <div style={{color:"white"}}> 
-   <img className="rounded-full" style={{width:"200px"}} src={i.photo.url} alt="..."/>  
-    <span>{i.label}</span>  
-    </div>  
-));
 
-const Childimages=c_childimages?.map((i:any)=>(  
-  <div> 
- <img className="" style={{height:"450px"}} src={i.url} alt="..."/>    
-  </div>  
-));
 
-const  DetailsCards = c_detailsCards?.map((link: any) => (
-  <div style={{paddingBottom:"250px"}}>
-     <div className="" style={{}}> 
-          <img src={link?.image?.url}  className="" style={{height:"300px"}}/>         
-           <p style={{fontSize:"20px",marginTop:"-60px",color:"white"}}><b>{link?.description}</b></p>
-     </div> 
-     <div style={{marginTop:"-270px",marginLeft:"10px"}}> 
-         <a className="pt-6" href={link?.cTA?.link}  >
-            <button className="card-img-top rounded-lg" style={{backgroundColor:"white",height:"30px",width:"160px",fontSize:"15px"}}>
-               <b>{link?.cTA?.label} </b>
-            </button>
-         </a>
-     </div>      
-  </div>   
+  const image = c_snapshots?.map((i: any) => (
+    <div style={{ color: "white" }}>
+      <img className="rounded-full" style={{ width: "200px" }} src={i.photo.url} alt="..." />
+      <span>{i.label}</span>
+    </div>
   ));
 
-  const  BannerImages = c_bannerImages?.map((link: any) => (
+  const Childimages = c_childimages?.map((i: any) => (
+    <div>
+      <img className="" style={{ height: "450px" }} src={i.url} alt="..." />
+    </div>
+  ));
+
+  const DetailsCards = c_detailsCards?.map((link: any) => (
+    <div style={{ paddingBottom: "250px" }}>
+      <div className="" style={{}}>
+        <img src={link?.image?.url} className="" style={{ height: "300px" }} />
+        <p style={{ fontSize: "20px", marginTop: "-60px", color: "white" }}><b>{link?.description}</b></p>
+      </div>
+      <div style={{ marginTop: "-270px", marginLeft: "10px" }}>
+        <a className="pt-6" href={link?.cTA?.link}  >
+          <button className="card-img-top rounded-lg" style={{ backgroundColor: "white", height: "30px", width: "160px", fontSize: "15px" }}>
+            <b>{link?.cTA?.label} </b>
+          </button>
+        </a>
+      </div>
+    </div>
+  ));
+
+  const BannerImages = c_bannerImages?.map((link: any) => (
     <div className="">
-       <div className="" style={{}}> 
-            <img src={link?.image?.url}  className="" style={{height:"400px"}}/>         
-             <p style={{fontSize:"40px",color:"white",marginTop:"-370px",marginLeft:"20px"}}><b>{link?.description}</b></p>
-       </div> 
-       <div style={{marginLeft:"10px",marginTop:"280px"}}> 
-           <a className="pt-6" href={link?.cTA?.link}  >
-              <button className="card-img-top rounded-full" style={{backgroundColor:"DeepPink",color:"white",height:"50px",width:"140px",fontSize:"20px"}}>
-                 <b>{link?.cTA?.label} </b>
-              </button>
-           </a>
-       </div>      
-    </div>   
-    ));
+      <div className="" style={{}}>
+        <img src={link?.image?.url} className="" style={{ height: "400px" }} />
+        <p style={{ fontSize: "40px", color: "white", marginTop: "-370px", marginLeft: "20px" }}><b>{link?.description}</b></p>
+      </div>
+      <div style={{ marginLeft: "10px", marginTop: "280px" }}>
+        <a className="pt-6" href={link?.cTA?.link}  >
+          <button className="card-img-top rounded-full" style={{ backgroundColor: "DeepPink", color: "white", height: "50px", width: "140px", fontSize: "20px" }}>
+            <b>{link?.cTA?.label} </b>
+          </button>
+        </a>
+      </div>
+    </div>
+  ));
 
-    const Explore=c_explorecareerphoto.map((element:any) =>(
-      <div> 
-          <img className="" style={{height:"380px",width:"550px"}} src={element.url} alt="..."/>    
-      </div> 
-      ));
+  const Explore = c_explorecareerphoto.map((element: any) => (
+    <div>
+      <img className="" style={{ height: "380px", width: "550px" }} src={element.url} alt="..." />
+    </div>
+  ));
 
-// const Cuponcard= c_cuponcard?.map((i:any)=>(   
-//   <img src={i.url} className="card-img-top w-4/5 " alt="..."/>  
-// ));
+  // const Cuponcard= c_cuponcard?.map((i:any)=>(   
+  //   <img src={i.url} className="card-img-top w-4/5 " alt="..."/>  
+  // ));
 
-// const Explore= c_explore?.map((i:any)=>(   
-//   <img src={i.url} className="card-img-top w-4/5 " alt="..."/>  
-// ));
+  // const Explore= c_explore?.map((i:any)=>(   
+  //   <img src={i.url} className="card-img-top w-4/5 " alt="..."/>  
+  // ));
 
-// const Googlelogo =c_googleLogo?.map((link: any) => (
-//   <div className=""> 
-//         <a className="navbar-item" href={link.link} >   
-//               <img src={link.icon?.url} className="flex space-x-4 h-16 w-48"/><br/>          
-//        </a>
-//      </div>      
-//   ));
-
-
+  // const Googlelogo =c_googleLogo?.map((link: any) => (
+  //   <div className=""> 
+  //         <a className="navbar-item" href={link.link} >   
+  //               <img src={link.icon?.url} className="flex space-x-4 h-16 w-48"/><br/>          
+  //        </a>
+  //      </div>      
+  //   ));
 
 
-  
 
- let templateData = { document: document, __meta: __meta };
+
+
+
+  let templateData = { document: document, __meta: __meta };
   let hoursSchema = [];
   let breadcrumbScheme = [];
   for (var key in hours) {
@@ -438,93 +438,93 @@ const  DetailsCards = c_detailsCards?.map((link: any) => (
     }
   }
   document.dm_directoryParents &&
-  document.dm_directoryParents.map((i: any, index: any) => {
-    if (i.meta.entityType.id == "ce_country") {
-      document.dm_directoryParents[index].name =
-        document.dm_directoryParents[index].name;
-      document.dm_directoryParents[index].slug =
-        document.dm_directoryParents[index].slug;
+    document.dm_directoryParents.map((i: any, index: any) => {
+      if (i.meta.entityType.id == "ce_country") {
+        document.dm_directoryParents[index].name =
+          document.dm_directoryParents[index].name;
+        document.dm_directoryParents[index].slug =
+          document.dm_directoryParents[index].slug;
 
-      breadcrumbScheme.push({
-        "@type": "ListItem",
-        position: index,
-        item: {
-          "@id":
-            stagingBaseurl +
-       
-            document.dm_directoryParents[index].slug +
-            ".html",
-          name: i.name,
-        },
-      });
-    } else if (i.meta.entityType.id == "ce_region") {
-      let url = "";
-      document.dm_directoryParents.map((j: any) => {
-        if (
-          j.meta.entityType.id != "ce_region" &&
-          j.meta.entityType.id != "ce_city" &&
-          j.meta.entityType.id != "ce_root"
-        ) {
-          console.log(j, "j");
-          url = url  + j.slug;
-        }
-      });
-      breadcrumbScheme.push({
-        "@type": "ListItem",
-        position: index,
-        item: {
-          "@id":
-            stagingBaseurl +
-            url + "/" +
-            document.dm_directoryParents[index].slug +
-            ".html",
-          name: i.name,
-        },
-      });
-    } else if (i.meta.entityType.id == "ce_city") {
-      let url = "";
-      document.dm_directoryParents.map((j: any) => {
-        if (
-          j.meta.entityType.id != "ce_city" &&
-          j.meta.entityType.id != "ce_root"
-        ) {
-          console.log(j, "j");
-          url = url  + "/" + j.slug;
-        }
-      });
-      breadcrumbScheme.push({
-        "@type": "ListItem",
-        position: index,
-        item: {
-          "@id":
-            stagingBaseurl +
-            url +"/" +
-            document.dm_directoryParents[index].slug +
-            ".html",
-          name: i.name,
-        },
-      });
-    }
+        breadcrumbScheme.push({
+          "@type": "ListItem",
+          position: index,
+          item: {
+            "@id":
+              stagingBaseurl +
+
+              document.dm_directoryParents[index].slug +
+              ".html",
+            name: i.name,
+          },
+        });
+      } else if (i.meta.entityType.id == "ce_region") {
+        let url = "";
+        document.dm_directoryParents.map((j: any) => {
+          if (
+            j.meta.entityType.id != "ce_region" &&
+            j.meta.entityType.id != "ce_city" &&
+            j.meta.entityType.id != "ce_root"
+          ) {
+            console.log(j, "j");
+            url = url + j.slug;
+          }
+        });
+        breadcrumbScheme.push({
+          "@type": "ListItem",
+          position: index,
+          item: {
+            "@id":
+              stagingBaseurl +
+              url + "/" +
+              document.dm_directoryParents[index].slug +
+              ".html",
+            name: i.name,
+          },
+        });
+      } else if (i.meta.entityType.id == "ce_city") {
+        let url = "";
+        document.dm_directoryParents.map((j: any) => {
+          if (
+            j.meta.entityType.id != "ce_city" &&
+            j.meta.entityType.id != "ce_root"
+          ) {
+            console.log(j, "j");
+            url = url + "/" + j.slug;
+          }
+        });
+        breadcrumbScheme.push({
+          "@type": "ListItem",
+          position: index,
+          item: {
+            "@id":
+              stagingBaseurl +
+              url + "/" +
+              document.dm_directoryParents[index].slug +
+              ".html",
+            name: i.name,
+          },
+        });
+      }
+    });
+
+  breadcrumbScheme.push({
+    "@type": "ListItem",
+    position: 4,
+    item: {
+      "@id": stagingBaseurl + path,
+      name: document.name,
+    },
   });
-
-breadcrumbScheme.push({
-  "@type": "ListItem",
-  position: 4,
-  item: {
-    "@id": stagingBaseurl + path,
-    name: document.name,
-  },
-});
   let imageurl = photoGallery ? photoGallery.map((element: any) => {
     return element.image.url
   }) : null;
   console.log(document)
   // let bannerimage = c_bannerImage && c_bannerImage?.image?.url;
-  
+
   // let offercard = c_offercard && c_offercard.image?.url;
 
 
-  
+
 
   return (
 
@@ -547,7 +547,7 @@ breadcrumbScheme.push({
           description: description,
           image: imageurl,
           telephone: mainPhone,
-          url: `${c_canonical?c_canonical:stagingBaseurl}${slug?slug:`${name}`}.html`
+          url: `${c_canonical ? c_canonical : stagingBaseurl}${slug ? slug : `${name}`}.html`
         }}
       />
       <JsonLd<BreadcrumbList>
@@ -558,87 +558,87 @@ breadcrumbScheme.push({
           itemListElement: breadcrumbScheme,
         }}
       />
-    
 
 
-<AnalyticsProvider
+
+      <AnalyticsProvider
         templateData={templateData}
-        enableDebugging={AnalyticsEnableDebugging} 
+        enableDebugging={AnalyticsEnableDebugging}
         enableTrackingCookie={AnalyticsEnableTrackingCookie}
       >
         {" "}
         <AnalyticsScopeProvider name={""}>
-      <PageLayout _site={_site}>
-     
-      <Header _site={_site}/> 
-      
-        <BreadCrumbs
-          name={name}
-          address={address}
-          parents={dm_directoryParents}
-          baseUrl={relativePrefixToRoot}
-        ></BreadCrumbs>
-        {/* <div>{Details}</div> */}
-      {/* <Banner /> */}
-      <div className="flex space-x-4" style={{paddingLeft:"5px",paddingRight:"5px"}}>{BannerImages}</div>
-      <div style={{paddingTop:"10px"}}>
-         <h1 className="pt-6" style={{marginLeft:"10px",color:"gray"}}><b>Snapshots</b> </h1>
-         <div className="flex space-x-8" style={{backgroundColor:"black",marginLeft:"5px",marginTop:"10px"}}>{image}
-         </div>
-      </div>
-      <div className="container" style={{backgroundColor:"lightgrey"}}>
-            <div className='banner-text banner-dark-bg justify-center text-center'>
-               <h1 className="">{name} </h1>
+          <PageLayout _site={_site}>
+
+            <Header _site={_site} />
+
+            <BreadCrumbs
+              name={name}
+              address={address}
+              parents={dm_directoryParents}
+              baseUrl={relativePrefixToRoot}
+            ></BreadCrumbs>
+            {/* <div>{Details}</div> */}
+            {/* <Banner /> */}
+            <div className="flex space-x-4" style={{ paddingLeft: "5px", paddingRight: "5px" }}>{BannerImages}</div>
+            <div style={{ paddingTop: "10px" }}>
+              <h1 className="pt-6" style={{ marginLeft: "10px", color: "gray" }}><b>Snapshots</b> </h1>
+              <div className="flex space-x-8" style={{ backgroundColor: "black", marginLeft: "5px", marginTop: "10px" }}>{image}
+              </div>
+            </div>
+            <div className="container" style={{ backgroundColor: "lightgrey" }}>
+              <div className='banner-text banner-dark-bg justify-center text-center'>
+                <h1 className="">{name} </h1>
                 <div className="openClosestatus detail-page closeing-div">
                   <OpenClose timezone={timezone} hours={hours} />
-                </div> 
-            </div>
-      </div>
-      <div style={{backgroundColor:"gray"}}>
-      <div className="location-information" >
-        <Contact address={address} 
-           phone={mainPhone} latitude={yextDisplayCoordinate ? yextDisplayCoordinate.latitude : displayCoordinate?.latitude}
-           yextDisplayCoordinate={yextDisplayCoordinate} longitude={yextDisplayCoordinate ? yextDisplayCoordinate.longitude : displayCoordinate?.longitude} hours={hours}  additionalHoursText={additionalHoursText} ></Contact>
-          {
-            hours ?
-              <div className="map-sec" id="map_canvas">
-                <CustomMap prop={yextDisplayCoordinate ? yextDisplayCoordinate : displayCoordinate} />
-              </div> :
-              <div className="map-sec without-hours" id="map_canvas">
-                <CustomMap prop={yextDisplayCoordinate ? yextDisplayCoordinate : displayCoordinate} />
-              </div>
-          }
-        </div> 
-        </div>
-        <div className="nearby-sec" style={{backgroundColor:"lightgray"}}>
-          <div className="container">
-            <div className="sec-title"><h2 className="">{StaticData.NearStoretext}</h2></div>
-            <div className="nearby-sec-inner">
-              {yextDisplayCoordinate || cityCoordinate || displayCoordinate ?
-                <Nearby externalApiData={externalApiData} /> 
-             : ''}
-            </div>
-          </div>          
-        </div>
-        <div className="pt-6" style={{paddingBottom:"10px"}}>
-          <h1 style={{marginLeft:"15px",color:"gray"}}><b>Insights by interest</b> </h1>
-        <div className="flex space-x-8 pt-6" style={{backgroundColor:"",paddingLeft:"10px"}}>{DetailsCards}</div>
-        </div>
-        
-        <div className="flex pt-6" style={{paddingLeft:"10px"}}>
-            <div className="" style={{paddingRight:"20px"}}>{Childimages}</div>
-            <div className="w-1/2">
-              <h3 style={{color:"gray",marginTop:"50px",fontSize:"20px"}}>Who we are</h3>
-              <h1 style={{marginTop:"30px",color:"red"}}><b>We build greater futures<br/>through innovation and <br/> collective knowledge. </b></h1>
-                <p style={{marginTop:"30px",color:"gray",fontSize:"20px"}}>{c_childdescription.description}</p>
-                <a className="" href={c_childdescription.getToKnowUs.link} style={{}} >
-                    <button className="card-img-top rounded-lg" style={{backgroundColor:"",height:"30px",width:"160px",marginTop:"30px"}}>
-                       <b>{c_childdescription.getToKnowUs.label} --> </b>
-                    </button>
-                </a>
                 </div>
-        </div>
-              {/* <div className="w-1/2 flex flex-col space-y-4 text-xl ">{c_details.description}
+              </div>
+            </div>
+            <div style={{ backgroundColor: "gray" }}>
+              <div className="location-information" >
+                <Contact address={address}
+                  phone={mainPhone} latitude={yextDisplayCoordinate ? yextDisplayCoordinate.latitude : displayCoordinate?.latitude}
+                  yextDisplayCoordinate={yextDisplayCoordinate} longitude={yextDisplayCoordinate ? yextDisplayCoordinate.longitude : displayCoordinate?.longitude} hours={hours} additionalHoursText={additionalHoursText} ></Contact>
+                {
+                  hours ?
+                    <div className="map-sec" id="map_canvas">
+                      <CustomMap prop={yextDisplayCoordinate ? yextDisplayCoordinate : displayCoordinate} />
+                    </div> :
+                    <div className="map-sec without-hours" id="map_canvas">
+                      <CustomMap prop={yextDisplayCoordinate ? yextDisplayCoordinate : displayCoordinate} />
+                    </div>
+                }
+              </div>
+            </div>
+            <div className="nearby-sec" style={{ backgroundColor: "lightgray" }}>
+              <div className="container">
+                <div className="sec-title"><h2 className="">{StaticData.NearStoretext}</h2></div>
+                <div className="nearby-sec-inner">
+                  {yextDisplayCoordinate || cityCoordinate || displayCoordinate ?
+                    <Nearby externalApiData={externalApiData} />
+                    : ''}
+                </div>
+              </div>
+            </div>
+            <div className="pt-6" style={{ paddingBottom: "10px" }}>
+              <h1 style={{ marginLeft: "15px", color: "gray" }}><b>Insights by interest</b> </h1>
+              <div className="flex space-x-8 pt-6" style={{ backgroundColor: "", paddingLeft: "10px" }}>{DetailsCards}</div>
+            </div>
+
+            <div className="flex pt-6" style={{ paddingLeft: "10px" }}>
+              <div className="" style={{ paddingRight: "20px" }}>{Childimages}</div>
+              <div className="w-1/2">
+                <h3 style={{ color: "gray", marginTop: "50px", fontSize: "20px" }}>Who we are</h3>
+                <h1 style={{ marginTop: "30px", color: "red" }}><b>We build greater futures<br />through innovation and <br /> collective knowledge. </b></h1>
+                <p style={{ marginTop: "30px", color: "gray", fontSize: "20px" }}>{c_childdescription.description}</p>
+                <a className="" href={c_childdescription.getToKnowUs.link} style={{}} >
+                  <button className="card-img-top rounded-lg" style={{ backgroundColor: "", height: "30px", width: "160px", marginTop: "30px" }}>
+                    <b>{c_childdescription.getToKnowUs.label} --> </b>
+                  </button>
+                </a>
+              </div>
+            </div>
+            {/* <div className="w-1/2 flex flex-col space-y-4 text-xl ">{c_details.description}
                  <div><a href="#">
                    <div className=""> {<Cta
                       buttonText="About-us"
@@ -648,32 +648,32 @@ breadcrumbScheme.push({
                    </div> </a>
                  </div> 
               </div>  */}
-              {/* <Cta /> */}          	 
-        {/* <div>
+            {/* <Cta /> */}
+            {/* <div>
         <Faq faqs={c_faqs} />
      </div> */}
-    
-     
-     
-      <div className="flex pt-6">
-        <div className="flex" style={{backgroundColor:"DarkSlateGrey"}}>
-            <div className="" >{Explore}</div>
-            <div className="w-1/2" style={{}}>
-              <div className="" style={{marginLeft:"150px"}}>
-                 <h1 style={{marginTop:"30px",color:"white",fontSize:"40px"}}>Shape the futures of<br/><br/>Technology </h1>
-                <p style={{marginTop:"30px",color:"gray",fontSize:"20px"}}>{c_explorecareerdescription.description}</p>
-                <a className="" href={c_explorecareerdescription.getToKnowUs.link} style={{}} >
-                    <button className="card-img-top rounded-full" style={{backgroundColor:"DeepPink",color:"white",height:"50px",width:"180px",fontSize:"20px",marginTop:"60px"}}>
-                       {c_explorecareerdescription.getToKnowUs.label} 
-                    </button>
-                </a>
+
+
+
+            <div className="flex pt-6">
+              <div className="flex" style={{ backgroundColor: "DarkSlateGrey" }}>
+                <div className="" >{Explore}</div>
+                <div className="w-1/2" style={{}}>
+                  <div className="" style={{ marginLeft: "150px" }}>
+                    <h1 style={{ marginTop: "30px", color: "white", fontSize: "40px" }}>Shape the futures of<br /><br />Technology </h1>
+                    <p style={{ marginTop: "30px", color: "gray", fontSize: "20px" }}>{c_explorecareerdescription.description}</p>
+                    <a className="" href={c_explorecareerdescription.getToKnowUs.link} style={{}} >
+                      <button className="card-img-top rounded-full" style={{ backgroundColor: "DeepPink", color: "white", height: "50px", width: "180px", fontSize: "20px", marginTop: "60px" }}>
+                        {c_explorecareerdescription.getToKnowUs.label}
+                      </button>
+                    </a>
+                  </div>
                 </div>
-                </div>
-        </div>
-        </div>
-     <Footer _site={_site}/>    
-     </PageLayout>
-      </AnalyticsScopeProvider>
+              </div>
+            </div>
+            <Footer _site={_site} />
+          </PageLayout>
+        </AnalyticsScopeProvider>
       </AnalyticsProvider>
     </>
   );
