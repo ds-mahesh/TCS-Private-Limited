@@ -14,7 +14,7 @@ export const StaticData = {
     Hours:"Hours",
     Minutes:"Minutes",
     Seconds:"Seconds",
-    FAQheading:"How can we help ?",
+    FAQheading:"Frequently Asked Questions ?",
     getDirection:"Directions",
     AllRegion:"All Regions of",
     NearStoretext:"NEARBY LOCATIONS",

@@ -84,8 +84,8 @@ export const config: TemplateConfig = {
       "dm_directoryParents.slug",
       "dm_directoryParents.meta.entityType",
       // "c_locationpagescards",
-      // "c_faq.question",
-      // "c_faq.answer",
+      "c_faq.question",
+      "c_faq.answer",
 
 
 
@@ -308,9 +308,8 @@ const Location: Template<ExternalApiRenderData> = ({
     c_bannerImages,
     c_bannerimage,
     c_explorecareerdescription,
-    c_explorecareerphoto
-
-    // c_faq
+    c_explorecareerphoto,
+    c_faq
   } = document;
   // const services = c_servicesIn?.map((link: any) => (
   // 	<a className="navbar-item" href={link.link} >
@@ -650,9 +649,9 @@ const Location: Template<ExternalApiRenderData> = ({
               </div>  */}
             {/* <Cta /> */}
             {/* <div>
-        <Faq faqs={c_faqs} />
+       
      </div> */}
-
+ <Faq faqs={c_faq} />
 
 
             <div className="flex pt-6">
