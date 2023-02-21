@@ -14,7 +14,7 @@ import Link from "../commons/Link";
 // 	  <a className="navbar-item" href={link.link} >   
 // 		 <span> {link.label}</span>
 // 		  <img src={link.icon?.url} className="h-10 w-10"/><br/>          
-// 		</a>
+// 	  </a>
 // 		</div>      
 
 // 	));
